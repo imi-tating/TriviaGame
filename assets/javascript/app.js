@@ -24,8 +24,8 @@ var allTriviaQuestions = [{
 }, {
   question: "Cats move both of their right feet first, then move both of their left feet.<br>Only two other animals walk this way. Which of the following is NOT one of them?",
   correctAnswer: "elephants",
-  option01: "camels",
-  option02: "elephants",
+  option01: "elephants",
+  option02: "camels",
   option03: "giraffes"
 }, {
   question: "Cats can jump up to how many times their length?",
@@ -41,7 +41,7 @@ var unAnswered;
 function createQuestion() {
   var question = "";
   for (var i = 0; i < allTriviaQuestions.length; i++) {
-    question += '<div class="card mx-auto mb-4" style="width: 80%"><h5 class="card-header">' + allTriviaQuestions[i].question + '</h5><ul class="list-group list-group-flush"><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '" value="' + allTriviaQuestions[i].option01 + '"><label class="form-check-label" for="radio-' + i + '">' + allTriviaQuestions[i].option01 + '</label></li><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '" value="' + allTriviaQuestions[i].option02 + '"><label class="form-check-label" for="radio-' + i + '">' + allTriviaQuestions[i].option02 + '</label></li><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '" value="' + allTriviaQuestions[i].option01 + '"><label class="form-check-label" for="radio-' + i + '">' + allTriviaQuestions[i].option03 + '</label></li></ul></div>';
+    question += '<div class="card mx-auto mb-4" style="width: 80%"><h5 class="card-header">' + allTriviaQuestions[i].question + '</h5><ul class="list-group list-group-flush"><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '1" value="' + allTriviaQuestions[i].option01 + '"><label class="form-check-label" for="radio-' + i + '1">' + allTriviaQuestions[i].option01 + '</label></li><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '2" value="' + allTriviaQuestions[i].option02 + '"><label class="form-check-label" for="radio-' + i + '2">' + allTriviaQuestions[i].option02 + '</label></li><li class="list-group-item form-check"><input class="form-check-input" type="radio" name="questionRadios-' + i + '" id="radio-' + i + '3" value="' + allTriviaQuestions[i].option03 + '"><label class="form-check-label" for="radio-' + i + '3">' + allTriviaQuestions[i].option03 + '</label></li></ul></div>';
   }
   return question;
 }
@@ -103,16 +103,9 @@ function startCountDown() {
 }
 
 function triviaAnswers() {
-  //need to check answers (checkAnswers()) here replacing html content
-  //alert();
   checkAnswers();
-
   $("#countdown-timer").empty();
   $("#trivia-questions").html("<h3>Alright, let's see how you did!</h3>").append('<p>Correct Answers: ' + correctAnswers + '<br>Incorrect Answers: ' + inCorrectAnswers + '<br>Unanswered: ' + unAnswered + '</p>');
-
-  // $("#trivia-questions").html('<p>Correct Answers: ' + correctAnswers + '.<br>Incorrect Answers: ' + inCorrectAnswers + '.<br>Unanswered: ' + unAnswered + '.</p>');
-
-  //<p>You got all the answers correct!</p>
   $("#trivia-questions").append("<button id='button-trivia-play-again' class='btn btn-success'>Play Again</button>");
   $("#button-trivia-play-again").click(triviaStart);
 }
