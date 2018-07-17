@@ -16,9 +16,9 @@ var allTriviaQuestions = [{
   option02: "30%",
   option03: "40%"
 }];
-var correctAnswers = 0;
-var inCorrectAnswers = 0;
-var unAnswered = 0;
+var correctAnswers;
+var inCorrectAnswers;
+var unAnswered;
 
 function createQuestion() {
   var question = "";
@@ -39,35 +39,26 @@ function createAnswer() {
 
 function checkAnswers() {
   for (var i = 0; i < allTriviaQuestions.length; i++) {
-    //'questionRadios-'+ i
     var currentRadioName = "questionRadios-" + i;
-    console.log($('input[name=' + currentRadioName + ']:checked').val());
-    console.log(allTriviaQuestions[i].correctAnswer);
-
-
     if (!$('input[name=' + currentRadioName + ']').is(':checked')) {
       unAnswered++;
     } else {
       if ($('input[name=' + currentRadioName + ']:checked').val() === allTriviaQuestions[i].correctAnswer) {
         correctAnswers++;
+      } else {
+        inCorrectAnswers++;
       }
-      inCorrectAnswers++;
     }
   }
-
-  // if (!$("input[name='name']:checked").val()) {
-  //      alert('Nothing is checked!');
-  //       return false;
-  //   }
-  //   else {
-  //     alert('One of the radio buttons is checked!');
-  //   }
 }
 
 function triviaStart() {
   $("#countdown-timer").empty();
   $(".footer").empty();
   countdown = 5;
+  correctAnswers = 0;
+  inCorrectAnswers = 0;
+  unAnswered = 0;
   $("#trivia-questions").html("<h3>Welcome! Welcome! Welcome!</h3>").append("<p>In this Trivia Game, Ellie will present you with a series of questions. <br> You will only have so much time to answer all the questions, so be sure not to lollygag before time runs out! <br> Are you ready to play?</p>");
   $("#trivia-questions").append("<button id='button-trivia-start' class='btn btn-success'>Start</button>");
   $("#button-trivia-start").click(triviaQuestions);
@@ -108,11 +99,7 @@ function triviaAnswers() {
   $("#button-trivia-play-again").click(triviaStart);
 }
 
-
 $(document).ready(function(){
   triviaStart();
-
-
-
 
 });
