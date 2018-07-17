@@ -15,6 +15,24 @@ var allTriviaQuestions = [{
   option01: "20%",
   option02: "30%",
   option03: "40%"
+}, {
+  question: "With the exception of polydactyl cats, cats are supposed to have how many toes?",
+  correctAnswer: "18 toes",
+  option01: "10 toes",
+  option02: "18 toes",
+  option03: "20 toes"
+}, {
+  question: "Cats move both of their right feet first, then move both of their left feet.<br>Only two other animals walk this way. Which of the following is NOT one of them?",
+  correctAnswer: "elephants",
+  option01: "camels",
+  option02: "elephants",
+  option03: "giraffes"
+}, {
+  question: "Cats can jump up to how many times their length?",
+  correctAnswer: "six",
+  option01: "three",
+  option02: "four",
+  option03: "six"
 }];
 var correctAnswers;
 var inCorrectAnswers;
@@ -55,7 +73,7 @@ function checkAnswers() {
 function triviaStart() {
   $("#countdown-timer").empty();
   $(".footer").empty();
-  countdown = 5;
+  countdown = 25;
   correctAnswers = 0;
   inCorrectAnswers = 0;
   unAnswered = 0;
